@@ -127,7 +127,7 @@
                         start = selection.start,
                         end = selection.end,
                         haveNumberSelected = (selection.start !== selection.end && $input.val().substring(start, end).match(/\d/)) ? true : false,
-                        startWithZero = ($input.val().substring(0, 1) === "0"),
+                        startWithZero = ($input.val().replace(/\D/g,'').substring(0, 1) === "0"),
                         haventReachedMaxNumbers = $input.val().replace(/\D/g,'').length < parameters.maxNumbers || startWithZero;
                     return haventReachedMaxNumbers && (haventReachedMaxLength || haveNumberSelected || startWithZero);
                 }
